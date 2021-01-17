@@ -1,5 +1,5 @@
 --Generic Query Tool
-SELECT * FROM employees;
+SELECT * FROM departments;
 
 --Question 1
 SELECT e.emp_no, e.first_name, e.last_name, e.sex, s.salary
@@ -34,3 +34,19 @@ FROM employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%'
 
 --Question 6
+SELECT employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+FROM employees
+JOIN dept_emp
+ON employees.emp_no = dept_emp.emp_no
+JOIN departments
+ON dept_emp.dept_no = departments.dept_no
+WHERE dept_name = 'Sales'
+
+--Question 7
+SELECT employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+FROM employees
+JOIN dept_emp
+ON employees.emp_no = dept_emp.emp_no
+JOIN departments
+ON dept_emp.dept_no = departments.dept_no
+WHERE dept_name = 'Sales' AND dept_name = 'Development'
