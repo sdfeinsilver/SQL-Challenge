@@ -1,5 +1,5 @@
 --Generic Query Tool
-SELECT * FROM departments;
+SELECT * FROM employees;
 
 --Question 1
 SELECT e.emp_no, e.first_name, e.last_name, e.sex, s.salary
@@ -49,4 +49,10 @@ JOIN dept_emp
 ON employees.emp_no = dept_emp.emp_no
 JOIN departments
 ON dept_emp.dept_no = departments.dept_no
-WHERE dept_name = 'Sales' AND dept_name = 'Development'
+WHERE dept_name = 'Sales' OR dept_name = 'Development'
+
+--Question 8
+SELECT last_name, COUNT(*) as "Employees with same last name"
+FROM employees
+GROUP BY last_name
+ORDER BY "Employees with same last name" DESC;
